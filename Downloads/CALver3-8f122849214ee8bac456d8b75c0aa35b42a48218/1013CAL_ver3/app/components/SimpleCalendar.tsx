@@ -359,13 +359,13 @@ export function SimpleCalendar({
         .brand-name {
           font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
           font-size: 7px;
-          font-weight: 500;
+          font-weight: 400;
           letter-spacing: 1.5px;
           color: #9ca3af;
           text-align: center;
-          margin-top: 8px;
-          margin-bottom: 4px;
-          opacity: 0.8;
+          margin-top: -8px;
+          margin-bottom: 6px;
+          opacity: 0.7;
         }
         
         .calendar-grid {
@@ -627,7 +627,7 @@ export function SimpleCalendar({
           
           .brand-name {
             color: #9ca3af;
-            opacity: 0.8;
+            opacity: 0.7;
           }
         }
       `}</style>
