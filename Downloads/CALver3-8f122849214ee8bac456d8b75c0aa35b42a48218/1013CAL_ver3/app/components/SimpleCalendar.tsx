@@ -290,7 +290,7 @@ export function SimpleCalendar({
           border-radius: 1rem;
           padding: 1rem;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-          max-width: 280px;
+          max-width: 308px;
           width: 100%;
           margin: 0 auto;
           user-select: none;
