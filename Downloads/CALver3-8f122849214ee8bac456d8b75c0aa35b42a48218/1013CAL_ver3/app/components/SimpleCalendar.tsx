@@ -335,7 +335,7 @@ export function SimpleCalendar({
           cursor: pointer;
           color: ${theme?.primaryColor || '#4a5568'};
           transition: all 0.2s;
-          font-size: 12px;
+          font-size: 10px;
           width: 20px;
           height: 20px;
           min-width: 20px;
@@ -354,6 +354,18 @@ export function SimpleCalendar({
           outline: 2px solid ${theme?.primaryColor || '#4a5568'};
           outline-offset: 2px;
           border-radius: 4px;
+        }
+        
+        .brand-name {
+          font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 1.5px;
+          color: ${theme?.primaryColor || '#718096'};
+          text-align: center;
+          margin-top: 8px;
+          margin-bottom: 4px;
+          opacity: 0.7;
         }
         
         .calendar-grid {
@@ -612,6 +624,11 @@ export function SimpleCalendar({
             color: #423D3D;
             background: ${theme?.primaryColor || '#4a5568'}66;
           }
+          
+          .brand-name {
+            color: ${theme?.primaryColor || '#a0aec0'};
+            opacity: 0.6;
+          }
         }
       `}</style>
       
@@ -689,6 +706,10 @@ export function SimpleCalendar({
         >
           →
         </button>
+      </div>
+      
+      <div className="brand-name">
+        SOMLUTION
       </div>
       
       {(hoveredDate || longPressDate) && (
