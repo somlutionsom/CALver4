@@ -319,10 +319,13 @@ export function SimpleCalendar({
         
         .nav-buttons {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
+          align-items: center;
           gap: 6px;
           margin-top: 12px;
           width: 100%;
+          padding: 0 20px;
+          box-sizing: border-box;
         }
         
         .nav-button {
@@ -379,7 +382,7 @@ export function SimpleCalendar({
           /* cursor: pointer; */ /* 클릭 기능 제거로 인해 제거됨 */
           transition: all 0.2s;
           position: relative;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 500;
           box-sizing: border-box;
           padding: 4px 2px;
@@ -402,11 +405,11 @@ export function SimpleCalendar({
         .calendar-day.has-events::after {
           content: '';
           position: absolute;
-          bottom: 4px;
+          bottom: 2px;
           left: 50%;
           transform: translateX(-50%);
-          width: 4px;
-          height: 4px;
+          width: 3px;
+          height: 3px;
           background: ${theme?.primaryColor || '#4a5568'};
           border-radius: 50%;
           z-index: 2;
@@ -415,8 +418,8 @@ export function SimpleCalendar({
         .calendar-day.important::before {
           content: '';
           position: absolute;
-          width: 60%;
-          height: 55%;
+          width: 65%;
+          height: 60%;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -434,8 +437,8 @@ export function SimpleCalendar({
         .calendar-day.today::before {
           content: '';
           position: absolute;
-          width: 60%;
-          height: 55%;
+          width: 65%;
+          height: 60%;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -574,8 +577,8 @@ export function SimpleCalendar({
           /* 다크 모드에서도 오늘 날짜와 중요 일정은 동일한 스타일 */
           .calendar-day.today::before {
             background: ${theme?.primaryColor || '#4a5568'};
-            width: 60%;
-            height: 55%;
+            width: 65%;
+            height: 60%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -585,8 +588,8 @@ export function SimpleCalendar({
           
           .calendar-day.important::before {
             background: ${theme?.importantColor || '#ED64A6'};
-            width: 60%;
-            height: 55%;
+            width: 65%;
+            height: 60%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
