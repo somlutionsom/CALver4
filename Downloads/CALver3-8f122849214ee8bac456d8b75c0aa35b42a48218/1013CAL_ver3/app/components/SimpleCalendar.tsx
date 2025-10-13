@@ -358,14 +358,14 @@ export function SimpleCalendar({
         
         .brand-name {
           font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
-          font-size: 10px;
+          font-size: 7px;
           font-weight: 500;
           letter-spacing: 1.5px;
-          color: ${theme?.primaryColor || '#718096'};
+          color: #9ca3af;
           text-align: center;
           margin-top: 8px;
           margin-bottom: 4px;
-          opacity: 0.7;
+          opacity: 0.8;
         }
         
         .calendar-grid {
@@ -626,8 +626,8 @@ export function SimpleCalendar({
           }
           
           .brand-name {
-            color: ${theme?.primaryColor || '#a0aec0'};
-            opacity: 0.6;
+            color: #9ca3af;
+            opacity: 0.8;
           }
         }
       `}</style>
