@@ -326,6 +326,7 @@ export function SimpleCalendar({
           width: 104%;
           padding: 0;
           box-sizing: border-box;
+          transform: translateY(2px);
         }
         
         .nav-button {
