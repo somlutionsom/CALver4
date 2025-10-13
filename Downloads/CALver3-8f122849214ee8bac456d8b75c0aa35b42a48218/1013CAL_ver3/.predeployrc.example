@@ -1,0 +1,16 @@
+{
+  "skipChecks": [],
+  "buildSizeLimit": {
+    "nodeModules": "1GB",
+    "cache": "1GB"
+  },
+  "requiredEnvVars": [
+    "ENCRYPTION_KEY",
+    "NEXT_PUBLIC_BASE_URL"
+  ],
+  "buildTimeout": 600,
+  "autoFix": false,
+  "verbose": false
+}
+
+
