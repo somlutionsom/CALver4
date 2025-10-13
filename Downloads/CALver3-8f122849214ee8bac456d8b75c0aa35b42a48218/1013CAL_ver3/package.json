@@ -12,7 +12,7 @@
     "migrate": "tsx scripts/migrateEvents.ts",
     "pre-deploy": "node scripts/preDeployCheck.js",
     "deploy": "npm run pre-deploy && vercel",
-    "vercel-build": "npm install && next build"
+    "vercel-build": "npm ci && next build"
   },
   "dependencies": {
     "@notionhq/client": "^2.3.0",
