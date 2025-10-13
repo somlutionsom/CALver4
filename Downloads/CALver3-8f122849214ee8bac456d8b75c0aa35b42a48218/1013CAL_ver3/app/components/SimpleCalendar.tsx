@@ -321,9 +321,9 @@ export function SimpleCalendar({
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          gap: 2px;
-          margin-top: 12px;
-          width: 100%;
+          gap: -2px;
+          margin-top: -1px;
+          width: 104%;
           padding: 0;
           box-sizing: border-box;
         }
