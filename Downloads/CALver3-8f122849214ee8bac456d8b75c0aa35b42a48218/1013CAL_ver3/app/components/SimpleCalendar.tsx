@@ -319,12 +319,12 @@ export function SimpleCalendar({
         
         .nav-buttons {
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-end;
           align-items: center;
-          gap: 6px;
+          gap: 2px;
           margin-top: 12px;
           width: 100%;
-          padding: 0 20px;
+          padding: 0;
           box-sizing: border-box;
         }
         
