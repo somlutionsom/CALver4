@@ -290,7 +290,7 @@ export function SimpleCalendar({
           border-radius: 1rem;
           padding: 1rem;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-          max-width: 256px;
+          max-width: 280px;
           width: 100%;
           margin: 0 auto;
           user-select: none;
@@ -379,8 +379,7 @@ export function SimpleCalendar({
           /* cursor: pointer; */ /* 클릭 기능 제거로 인해 제거됨 */
           transition: all 0.2s;
           position: relative;
-          min-height: 42px;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 500;
           box-sizing: border-box;
           padding: 4px 2px;
@@ -416,11 +415,11 @@ export function SimpleCalendar({
         .calendar-day.important::before {
           content: '';
           position: absolute;
-          width: 70%;
-          height: 65%;
+          width: 60%;
+          height: 55%;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -55%);
+          transform: translate(-50%, -50%);
           background: ${theme?.importantColor || '#ED64A6'};
           border-radius: 6px;
           z-index: -1;
@@ -435,11 +434,11 @@ export function SimpleCalendar({
         .calendar-day.today::before {
           content: '';
           position: absolute;
-          width: 70%;
-          height: 65%;
+          width: 60%;
+          height: 55%;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -55%);
+          transform: translate(-50%, -50%);
           background: ${theme?.primaryColor || '#4a5568'};
           border-radius: 6px;
           z-index: -1;
@@ -575,22 +574,22 @@ export function SimpleCalendar({
           /* 다크 모드에서도 오늘 날짜와 중요 일정은 동일한 스타일 */
           .calendar-day.today::before {
             background: ${theme?.primaryColor || '#4a5568'};
-            width: 70%;
-            height: 65%;
+            width: 60%;
+            height: 55%;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -55%);
+            transform: translate(-50%, -50%);
             border-radius: 6px;
             z-index: -1;
           }
           
           .calendar-day.important::before {
             background: ${theme?.importantColor || '#ED64A6'};
-            width: 70%;
-            height: 65%;
+            width: 60%;
+            height: 55%;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -55%);
+            transform: translate(-50%, -50%);
             border-radius: 6px;
             z-index: -1;
           }
