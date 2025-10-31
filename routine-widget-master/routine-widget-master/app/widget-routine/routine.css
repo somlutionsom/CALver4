@@ -1,0 +1,766 @@
+/* ========================================
+   Routine Player 위젯 스타일 (Windows 95 스타일)
+   ======================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/Galmuri/Galmuri.css');
+
+/* 전역 스타일 */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 전체 컨테이너 - 80% 축소 */
+.routine-container {
+  width: 288px;
+  height: 228px;
+  position: relative;
+  font-family: 'Galmuri11', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  cursor: default;
+  background: hsl(200 25% 95%);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* 윈도우 스타일 */
+.routine-window {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: hsl(220 10% 85%);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 타이틀 바 */
+.routine-titlebar {
+  height: 32px;
+  background: hsl(340 100% 88%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid hsl(220 20% 80%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 13px;
+  flex-shrink: 0;
+}
+
+/* 타이틀 텍스트 */
+.routine-title {
+  font-size: 9px;
+  font-weight: bold;
+  color: hsl(220 20% 30%);
+  user-select: none;
+  letter-spacing: 1px;
+}
+
+.routine-window-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+/* 윈도우 버튼 - 80% 축소 */
+.window-btn {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.window-btn:nth-child(1) {
+  background: hsl(340 100% 94%);
+}
+
+.window-btn:nth-child(1):hover {
+  opacity: 0.7;
+}
+
+.window-btn:nth-child(2) {
+  background: hsl(340 90% 90%);
+}
+
+.window-btn:nth-child(2):hover {
+  opacity: 0.7;
+}
+
+.window-btn:nth-child(3) {
+  background: hsl(0 0% 100%);
+}
+
+.window-btn:nth-child(3):hover {
+  opacity: 0.7;
+}
+
+.window-btn:hover {
+  transform: none;
+}
+
+.window-btn:active {
+  transform: scale(0.9);
+}
+
+/* 메뉴 바 */
+.routine-menubar {
+  background: white;
+  border-bottom: 1px solid hsl(220 20% 80%);
+  padding: 4px 13px;
+  display: flex;
+  gap: 16px;
+}
+
+.routine-menubar span {
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+  color: hsl(220 20% 30%);
+}
+
+.routine-menubar span:hover {
+  background: hsl(210 45% 90%);
+  opacity: 0.3;
+}
+
+/* 콘텐츠 영역 */
+.routine-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  gap: 10px;
+  overflow: hidden;
+  background: hsl(200 60% 96%);
+}
+
+/* 루틴 헤더 (이름 + 타이머) */
+.routine-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+/* 루틴 표시 영역 (중앙 정렬) */
+.routine-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 9px;
+}
+
+.routine-emoji {
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.routine-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: hsl(220 20% 30%);
+  text-align: center;
+  user-select: none;
+}
+
+/* 현재 루틴 표시 */
+.current-routine {
+  font-size: 14px;
+  font-weight: bold;
+  color: hsl(220 20% 30%);
+  user-select: none;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 타이머 디스플레이 */
+.timer-display {
+  font-size: 11px;
+  font-weight: bold;
+  color: hsl(220 15% 50%);
+  letter-spacing: 0.8px;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 타이머 중앙 표시 */
+.timer-display-center {
+  font-size: 10px;
+  font-weight: bold;
+  color: hsl(220 15% 50%);
+  letter-spacing: 0.8px;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  margin-top: -3px;
+  margin-bottom: 3px;
+}
+
+/* 프로그레스 바 컨테이너 */
+.progress-bar-container {
+  position: relative;
+  height: 26px;
+  background: white;
+  border: 1px solid hsl(220 20% 80%);
+  border-radius: 2px;
+  margin: 3px 0 8px 0;
+  overflow: hidden;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: hsl(340 85% 80%);
+  border-radius: 0;
+  box-shadow: none;
+  transition: width 0.5s ease-out;
+}
+
+.progress-bar-fill::after {
+  display: none;
+}
+
+.progress-bar-text {
+  display: none;
+}
+
+.progress-bar-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: bold;
+  color: hsl(220 20% 30%);
+  z-index: 10;
+  user-select: none;
+  text-shadow: 0 0 2px white;
+  letter-spacing: 0.8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-bar {
+  display: none;
+}
+
+/* 컨트롤 버튼 영역 */
+.routine-controls {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding: 0;
+  margin-top: 5px;
+}
+
+/* 버튼 - 80% 축소, 사각형 라운드, 텍스트 */
+.control-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: hsl(200 30% 88%);
+  border: 1px solid hsl(220 20% 80%);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(220 20% 30%);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  font-family: 'Galmuri11', 'Pretendard', sans-serif;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  height: 22px;
+}
+
+.control-btn:hover {
+  transform: none;
+  background: hsl(210 45% 90%);
+  opacity: 0.8;
+}
+
+.control-btn:active {
+  transform: translateY(1px);
+}
+
+.control-btn.primary {
+  background: hsl(340 100% 88%);
+  color: hsl(220 20% 30%);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.control-btn.primary:hover {
+  background: hsl(340 100% 88%);
+  opacity: 0.8;
+}
+
+.control-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 스테이지 인디케이터 - 제거 */
+.stage-indicator {
+  display: none;
+}
+
+/* 별점 선택 화면 */
+.star-rating {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.star-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 28px;
+  transition: all 0.2s ease;
+  user-select: none;
+  color: hsl(340 100% 75%);
+  line-height: 1;
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px hsl(340 100% 75%));
+}
+
+.star-btn:active {
+  transform: scale(1.1);
+}
+
+.star-btn.filled {
+  color: hsl(45 100% 60%);
+  animation: starPop 0.3s ease;
+}
+
+@keyframes starPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* 기존 mood 스타일 호환 */
+.mood-selector {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 0;
+}
+
+.mood-btn {
+  padding: 13px;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid hsl(220 20% 80%);
+  cursor: pointer;
+  font-size: 26px;
+  transition: all 0.2s ease;
+  user-select: none;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.mood-btn:hover {
+  transform: none;
+  background: hsl(210 45% 90%);
+  opacity: 0.2;
+}
+
+.mood-btn:active {
+  transform: scale(0.95);
+}
+
+.mood-btn.selected {
+  background: hsl(340 85% 80%);
+  border: 2px solid hsl(340 85% 80%);
+  box-shadow: none;
+}
+
+/* 완료 리포트 화면 */
+.completion-report {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 17px; /* 상단 여백 증가 */
+  width: 100%;
+  height: 100%;
+}
+
+/* 리포트 상단 타이틀 */
+.report-header {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 9px; /* 제목과 본문 사이 간격 확대 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* 체크박스 스타일 */
+.routine-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  font-size: 6px;
+}
+
+.routine-checkbox input[type="checkbox"] {
+  width: 9px;
+  height: 9px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.routine-checkbox .checkbox-label {
+  font-size: 7px;
+  font-weight: bold;
+  color: hsl(220 20% 40%);
+  user-select: none;
+}
+
+.report-container {
+  display: flex;
+  gap: 9px;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  margin-top: 8px; /* 본문 전체를 더 아래로 */
+}
+
+/* 섹션 소제목 */
+.report-section-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* 좌측: 통계 영역 */
+.report-left {
+  flex: 0 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.report-title {
+  font-size: 8px;
+  font-weight: bold;
+  color: hsl(220 20% 30%);
+  letter-spacing: 0.3px;
+  text-align: center;
+  margin-bottom: 4px;
+  user-select: none;
+}
+
+.report-stats {
+  font-size: 7px;
+  color: hsl(220 20% 40%);
+  background: hsl(220 20% 95%);
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid hsl(220 20% 85%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* 라벨과 값을 한 줄로 */
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.report-stats .stat-value {
+  font-weight: bold;
+  color: hsl(220 20% 20%);
+  margin-bottom: 4px;
+}
+
+.report-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.report-btn {
+  padding: 4px 8px;
+  font-size: 7px;
+  border-radius: 3px;
+  background: hsl(220 20% 90%);
+  color: hsl(220 20% 30%);
+  border: 1px solid hsl(220 20% 80%);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  user-select: none;
+  font-family: 'Galmuri11', 'Pretendard', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.report-btn:hover {
+  background: hsl(220 20% 85%);
+  transform: scale(1.02);
+}
+
+.report-btn:active {
+  transform: scale(0.98);
+}
+
+/* 저장 완료 강조 상태 */
+.report-btn.saved {
+  background: hsl(120 60% 90%);
+  border-color: hsl(120 40% 70%);
+  color: hsl(120 30% 25%);
+  letter-spacing: 1px;
+}
+
+.report-btn.saved:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.report-btn.home-btn {
+  background: hsl(340 100% 88%);
+}
+
+/* 우측: 아이템 그리드 */
+.report-right {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 더 촘촘하게 */
+  gap: 2px; /* 더 촘촘한 간격 */
+  padding: 2px;
+}
+
+.item-slot {
+  aspect-ratio: 1;
+  background: transparent;
+  border: 1px solid hsl(210 20% 75%);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: none;
+}
+
+.item-slot.empty {
+  background: linear-gradient(135deg, hsl(220 10% 95%) 0%, hsl(220 10% 90%) 100%);
+  border-color: hsl(220 10% 82%);
+}
+
+.item-icon {
+  font-size: 16px; /* 아이콘 크기 축소 */
+  line-height: 1;
+}
+
+/* 스크롤바 스타일 */
+.report-right::-webkit-scrollbar {
+  width: 4px;
+}
+
+.report-right::-webkit-scrollbar-track {
+  background: hsl(220 10% 90%);
+  border-radius: 2px;
+}
+
+.report-right::-webkit-scrollbar-thumb {
+  background: hsl(220 20% 70%);
+  border-radius: 2px;
+}
+
+.report-right::-webkit-scrollbar-thumb:hover {
+  background: hsl(220 20% 60%);
+}
+
+/* 시작 화면 */
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  height: 100%;
+  padding: 13px;
+  padding-top: 10px;
+  background: transparent;
+}
+
+/* 만족도 선택 화면 */
+.mood-screen {
+  padding-top: 32px;
+}
+
+.start-icon {
+  font-size: 32px;
+  margin-bottom: 0px;
+  animation: bounce 1s ease infinite;
+  filter: none;
+}
+
+.start-title {
+  font-size: 11px;
+  font-weight: 900;
+  color: hsl(340 100% 60%);
+  text-align: center;
+  user-select: none;
+  margin-bottom: 0px;
+}
+
+.start-info {
+  font-size: 9px;
+  color: hsl(220 20% 30%);
+  text-align: center;
+  user-select: none;
+  background: hsl(340 100% 92%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.info-highlight {
+  font-weight: 900;
+  color: #000000;
+}
+
+.start-button {
+  margin-top: 3px;
+  max-width: 100px;
+  width: 100%;
+  padding: 6px 13px;
+  font-size: 10px;
+  border-radius: 4px;
+  background: hsl(340 100% 88%);
+  color: hsl(220 20% 30%);
+  border: 1px solid hsl(220 20% 80%);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  user-select: none;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  font-family: 'Galmuri11', 'Pretendard', sans-serif;
+  letter-spacing: 1.2px;
+  height: 26px;
+}
+
+.start-button:hover {
+  transform: none;
+  background: hsl(340 100% 88%);
+  opacity: 0.8;
+}
+
+.start-button:active {
+  transform: translateY(1px);
+}
+
+/* 시작하기 텍스트 버튼 */
+.start-button-text {
+  margin-top: 24px;
+  font-size: 10px;
+  color: hsl(220 20% 30%);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  user-select: none;
+  font-family: 'Galmuri11', 'Pretendard', sans-serif;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.start-button-text:hover {
+  color: hsl(340 100% 60%);
+  transform: scale(1.05);
+}
+
+.start-button-text:active {
+  transform: scale(0.98);
+}
+
+/* 로딩 상태 */
+.routine-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 32px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* 애니메이션 */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}

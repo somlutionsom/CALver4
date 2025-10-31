@@ -1,0 +1,146 @@
+/* ========================================
+   게임 대화창 위젯 스타일
+   ======================================== */
+
+/* 전역 스타일 */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 대화창 컨테이너 - 고정 (80% 축소) */
+.dialogue-container {
+  width: 224px;   /* 280px × 0.8 = 224px */
+  height: 80px;   /* 100px × 0.8 = 80px */
+  position: relative;
+  cursor: pointer;
+}
+
+/* 외부 사각형 - blur 없음, 테마 색상 적용 (80% 축소) */
+.dialogue-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;  /* 8px × 0.8 ≈ 6.4px ≈ 6px */
+  z-index: 1;
+}
+
+/* 내부 사각형 - 80% 크기, 어두운 색상, 높은 blur (80% 축소) */
+.dialogue-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 중앙 정렬 */
+  width: 80%;                        /* 80% 크기 (60% + 20%) */
+  height: 60%;                       /* 높이는 60% 유지 */
+  border-radius: 6px;                /* 8px × 0.8 ≈ 6.4px ≈ 6px */
+  filter: blur(6px);                 /* 8px × 0.8 ≈ 6.4px ≈ 6px */
+  z-index: 2;
+}
+
+/* 텍스트 영역 (80% 축소에 맞춰 조정) */
+.dialogue-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 16px;      /* 16px × 0.8 = 12.8px ≈ 12px, 20px × 0.8 = 16px */
+  padding-right: 24px;     /* 30px × 0.8 = 24px (삼각형 공간 확보) */
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  font-family: 'Galmuri7', 'Galmuri', monospace;
+  font-size: 11px;         /* 13px × 0.8 ≈ 10.4px ≈ 11px */
+  line-height: 1.8;
+  font-weight: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 우측 하단 삼각형 (▼) - 위아래 움직임 + 깜빡임 + 클릭 가능 (80% 축소) */
+.dialogue-triangle {
+  position: absolute;
+  bottom: 10px;                 /* 12px × 0.8 ≈ 9.6px ≈ 10px */
+  right: 11px;                  /* 14px × 0.8 ≈ 11.2px ≈ 11px */
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;    /* 7px × 0.8 ≈ 5.6px ≈ 6px */
+  border-right: 6px solid transparent;   /* 7px × 0.8 ≈ 5.6px ≈ 6px */
+  border-top: 7px solid white;           /* 9px × 0.8 ≈ 7.2px ≈ 7px */
+  z-index: 4;
+  cursor: pointer;              /* 클릭 가능 표시 */
+  animation: triangle-float 2s ease-in-out infinite, triangle-blink 1.2s ease-in-out infinite;
+  transition: transform 0.2s;   /* 클릭 효과 */
+}
+
+/* 삼각형 클릭 영역 확대 (보이지 않는 영역) */
+.dialogue-triangle::before {
+  content: '';
+  position: absolute;
+  top: -15px;      /* 위로 15px 확장 */
+  left: -15px;     /* 왼쪽으로 15px 확장 */
+  right: -15px;    /* 오른쪽으로 15px 확장 */
+  bottom: -15px;   /* 아래로 15px 확장 */
+  cursor: pointer;
+}
+
+.dialogue-triangle:hover {
+  filter: brightness(1.2);      /* 호버 시 약간 밝게 */
+}
+
+.dialogue-triangle:active {
+  transform: scale(0.9) translateY(0px);  /* 클릭 시 살짝 작아짐 */
+}
+
+/* 삼각형 위아래 움직임 (80% 축소) */
+@keyframes triangle-float {
+  0%, 20% {
+    transform: translateY(0px);
+  }
+  40%, 60% {
+    transform: translateY(-4px);  /* 5px × 0.8 = 4px */
+  }
+  80%, 100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 삼각형 깜빡임 */
+@keyframes triangle-blink {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 95% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 로딩 상태 */
+.dialogue-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* 애니메이션 펄스 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
